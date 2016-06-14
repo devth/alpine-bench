@@ -21,8 +21,8 @@ docker run -it --rm -t devth/alpine-bench -n3 http://google.com/
 ## Special options
 
 Options which require reading from a file can be passed in via ENV instead.
-Internally the contents will be written to a file and the `ab` option will be
-used.
+Internally the contents will be written to a file and the corresponding `ab`
+option will be used.
 
 ### Example
 
