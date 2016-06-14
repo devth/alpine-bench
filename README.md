@@ -7,7 +7,9 @@ latency metrics from your services. It does this by:
 1. Parsing the results into a JSON data structure and printing them to stdout
 
 This makes it useful for running from your automation (e.g. CI/CD) and making
-decisions based on the results.
+decisions based on the results. For example, in a CD pipeline it can be useful
+to deploy a new build to `dev`, measure its latency, and if the result is within
+some threshold, proceed to `prod` rollout.
 
 ## Usage
 
