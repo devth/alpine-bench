@@ -20,7 +20,7 @@ const (
 
 func check(e error) {
 	if e != nil {
-		log.Fatal(e)
+		// log.Fatal(e)
 		panic(e)
 	}
 }
@@ -67,11 +67,12 @@ func extractLatency(lines []string) map[string]map[string]float64 {
 
 func runAb(cmd string, args []string) map[string]map[string]float64 {
 	log.Println("Running:", cmd, strings.Join(args, " "))
-	out, err := exec.Command(cmd, args...).Output()
-	check(err)
+	// out, err := exec.Command(cmd, args...).Output()
+	out, err := exec.Command(cmd, args...).CombinedOutput()
 	results := fmt.Sprintf("%s", out)
+	log.Println(results)
+	check(err)
 	lines := strings.Split(results, "\n")
-	// fmt.Println(results)
 	// fmt.Printf("%d lines\n", len(lines))
 	latency := extractLatency(lines)
 	return latency
