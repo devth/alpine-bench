@@ -20,18 +20,6 @@ mechnaism, e.g.:
 docker run -it --rm -t devth/alpine-bench -n3 http://google.com/
 ```
 
-## Special options
-
-Options which require reading from a file can be passed in via ENV instead.
-Internally the contents will be written to a file and the corresponding `ab`
-option will be used.
-
-### Example
-
-```
-docker run -e 'POST=post body' -it --rm -t devth/alpine-bench -n3 http://google.com/
-```
-
 Sample output:
 
 ```json
@@ -80,6 +68,18 @@ Sample output:
 
 The output can be parsed by your CI tool to make decisions about whether to
 rollout a deployment (or whatever else you might want to do).
+
+## Special options
+
+Options which require reading from a file can be passed in via ENV instead.
+Internally the contents will be written to a file and the corresponding `ab`
+option will be used.
+
+### Example
+
+```
+docker run -e 'POST=post body' -it --rm -t devth/alpine-bench -n3 http://google.com/
+```
 
 ### Options
 
