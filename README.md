@@ -32,6 +32,55 @@ option will be used.
 docker run -e 'POST=post body' -it --rm -t devth/alpine-bench -n3 http://google.com/
 ```
 
+Sample output:
+
+```json
+{
+  "connect": {
+    "max": 154,
+    "mean": 69,
+    "median": 66,
+    "min": 54,
+    "stdDev": 18.60000038147
+  },
+  "percentiles": {
+    "100": 340,
+    "50": 258,
+    "66": 264,
+    "75": 269,
+    "80": 283,
+    "90": 291,
+    "95": 296,
+    "98": 340,
+    "99": 340
+  },
+  "processing": {
+    "max": 274,
+    "mean": 196,
+    "median": 196,
+    "min": 142,
+    "stdDev": 18.60000038147
+  },
+  "total": {
+    "max": 340,
+    "mean": 266,
+    "median": 258,
+    "min": 250,
+    "stdDev": 18.799999237061
+  },
+  "waiting": {
+    "max": 274,
+    "mean": 196,
+    "median": 196,
+    "min": 141,
+    "stdDev": 18.60000038147
+  }
+}
+```
+
+The output can be parsed by your CI tool to make decisions about whether to
+rollout a deployment (or whatever else you might want to do).
+
 ### Options
 
 | `ab` Option    | Env Var |
